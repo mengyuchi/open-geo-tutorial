@@ -12,6 +12,10 @@ Open Source Geoprocessing Tutorial
 Tutorial of basic remote sensing and GIS methodologies using modern open source
 software in Python (rasterio, shapely, GeoPandas, folium, etc). Notebooks cover raster processing, vector analysis, and a workflow to perform image classification using machine learning classifiers in `scikit-learn`:
 
+This repo can be run entirely in the cloud with no manual setup via Binder by clicking this badge: 
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/patrickcgray/open-geo-tutorial/master?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fpatrickcgray%252Fopen-geo-tutorial%26urlpath%3Dlab%252Ftree%252Fopen-geo-tutorial%252F%26branch%3Dmaster)
+
 All chapters are available as jupyter notebooks in the `notebooks/` directory or viewable via a normal web browser in HTML:
 
 0. Introduction
