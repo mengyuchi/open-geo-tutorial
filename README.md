@@ -10,11 +10,13 @@ Open Source Geoprocessing Tutorial
 <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"></a>
 
 Tutorial of basic remote sensing and GIS methodologies using modern open source
-software in Python (rasterio, shapely, GeoPandas, folium, etc). Notebooks cover raster processing, vector analysis, and a workflow to perform image classification using machine learning classifiers in `scikit-learn`:
+software in Python (rasterio, shapely, GeoPandas, folium, etc). Notebooks cover raster processing, vector analysis, cloud-based tools like Google Earth Engine, a workflow to perform image classification using machine learning classifiers in `scikit-learn`, and an introduction to handling large array datasets with `xarray`:
 
 This repo can be run entirely in the cloud with no manual setup via Binder by clicking this badge: 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/patrickcgray/open-geo-tutorial/master?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fpatrickcgray%252Fopen-geo-tutorial%26urlpath%3Dlab%252Ftree%252Fopen-geo-tutorial%252F%26branch%3Dmaster)
+
+# Repo Structure 
 
 All chapters are available as jupyter notebooks in the `notebooks/` directory or viewable via a normal web browser in HTML:
 
@@ -32,10 +34,9 @@ All chapters are available as jupyter notebooks in the `notebooks/` directory or
    [[HTML](http://patrickgray.me/open-geo-tutorial/chapter_5_classification.html)]
 6. Deep Learning for land cover classification [[HTML](http://patrickgray.me/open-geo-tutorial/chapter_6_neural_networks.html)] built to run in [Google Colab](https://colab.research.google.com/github/patrickcgray/open-geo-tutorial/blob/master/notebooks/chapter_6_neural_networks.ipynb).
 7. Earth Engine for Oceanographic Time Series Analysis [[HTML](http://patrickgray.me/open-geo-tutorial/chapter_7_earth_engine_oceanography.html)]
-8. Xarray for handling N-dimensional arrays and advanced visualization (in progress)
-9. Parallelization with dask for large datasets and faster analysis (in progress)
+8. Xarray for handling N-dimensional arrays and advanced visualization with hvplot  [[HTML](http://patrickgray.me/open-geo-tutorial/chapter_8_xarray_netcdfs.html)]
 
-I strongly recommend using docker and downloading the jupyter notebooks so you can play as you read along, otherwise you will quickly forget these tools.
+I strongly recommend using Binder and interactively playing with these notebooks. As an alternative, or if you want to work more extensively with these labs, you can easily git clone the whole repo and use the included Dockerfile to set up your environment.
 
 ### Some of the things you'll learn:
 
@@ -48,10 +49,18 @@ I strongly recommend using docker and downloading the jupyter notebooks so you c
 #### Machine Learning based Satellite Image Classification
 <img src="data/ml_exp.png" width="750">
 
-# Download
+#### Dealing with large datasets and interactive analysis
+<img src="data/chla_xarray.png" width="450">
+
+# Setup
+As mentioned above, this repo can be run entirely in the cloud with no manual setup via Binder by clicking this badge and this is what we strongly recommend for beginner users: 
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/patrickcgray/open-geo-tutorial/master?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fpatrickcgray%252Fopen-geo-tutorial%26urlpath%3Dlab%252Ftree%252Fopen-geo-tutorial%252F%26branch%3Dmaster)
+
+## Download
 
 Materials and data for these lessons are included inside this repository under
-the `data/` directory. I would recommend downloading all of the lesson material
+the `data/` directory. If you're note running in Binder I would recommend downloading all of the lesson material
 at once, instead of downloading individual files.
 
 Two ways to download the entire repository include:
@@ -61,33 +70,16 @@ Two ways to download the entire repository include:
 * Downloading and extracting a ZIP file of the 'master' branch
     * [Download link](https://github.com/patrickcgray/open-geo-tutorial/archive/master.zip)
 
-# Python Installation
+## Python Installation
 
 To run the Jupyter Notebooks (formerly known as IPython Notebooks) and follow
 the tutorial locally, you will need to install Python and the libraries used in
-the tutorials. This installation can be accomplished in many ways, but I will
-list the two most common approaches:
+the tutorials. This installation can be accomplished in many ways, but I recommend Docker:
 
-### docker - recommended method
+### Docker
 
-I highly recommend trying out [Docker](https://docs.docker.com/get-started/) if you're not familiar with it. There is a bit of a startup time just for getting up to speed but it is the way to go for reproducible work. Docker provides operating-system-level virtualization, also known as "containerization" and thus you can be sure that your setup precisely replicates the one used here and will easily run everything. Once you've downloaded Docker you can simply cd into the cloned git repo and run: 
+I highly recommend trying out [Docker](https://docs.docker.com/get-started/) if you're not familiar with it. There is a bit of a startup time just for getting up to speed but it is the way to go for reproducible work and cloud deployable workflows. Docker provides operating-system-level virtualization, also known as "containerization" and thus you can be sure that your setup precisely replicates the one used here and will easily run everything. Once you've downloaded Docker you can simply cd into the cloned git repo and run: 
 
-`docker build -t open-geo .` 
+`docker run -it --rm -p 8888:8888 -v <path to repo>:/home/jovyan/repo/ pangeo/pangeo-notebook:2021.05.15 jupyter lab --ip 0.0.0.0`
 
-which will pull the Dockerfile from the current location and create an OS image called 'open-geo' from it and then to create the container run this from the top of the git repo: 
-
-`docker run --name geo-cont -p 8888:8888 -v "$PWD:/opt/notebooks" -it open-geo` 
-
-which will start a container called 'geo-cont' based on the 'open-geo' image, then it will mount the repo directory to the container's /opt/notebooks directory where you can go access this repo's jupyter notebooks.
-
-### conda
-
-You can also run this repository using [Anaconda](http://conda.pydata.org/docs/) to make sure your python environment is isolated. After [installing Anaconda or "miniconda" by following their
-instructions](http://conda.pydata.org/docs/install/quick.html), you can install
-the dependencies as follows:
-
-``` bash
-conda create --name open-geo-tutorial
-source activate open-geo-tutorial
-pip install -r requirements.txt
-```
+This will download the Docker image that is needed to run this whole repo and then it will start up a Jupyter Lab instance that you can access by clicking the link in the terminal. Just change `<path to repo>` to the appropriate path and you'll be good to go!
