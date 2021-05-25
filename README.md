@@ -10,7 +10,7 @@ Open Source Geoprocessing Tutorial
 <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"></a>
 
 Tutorial of basic remote sensing and GIS methodologies using modern open source
-software in Python (rasterio, shapely, GeoPandas, folium, etc). Notebooks cover raster processing, vector analysis, cloud-based tools like Google Earth Engine, a workflow to perform image classification using machine learning classifiers in `scikit-learn`, and an introduction to handling large array datasets with `xarray`:
+software in Python (`rasterio`, `shapely`, `geopandas`, `folium`, etc). Notebooks cover raster processing, vector analysis, cloud-based tools like Google Earth Engine, a workflow to perform image classification using machine learning classifiers in `scikit-learn`, and an introduction to handling large array datasets with `xarray`:
 
 This repo can be run entirely in the cloud with no manual setup via Binder by clicking this badge: 
 
@@ -36,7 +36,7 @@ All chapters are available as jupyter notebooks in the `notebooks/` directory or
 7. Earth Engine for Oceanographic Time Series Analysis [[HTML](http://patrickgray.me/open-geo-tutorial/chapter_7_earth_engine_oceanography.html)]
 8. Xarray for handling N-dimensional arrays and advanced visualization with hvplot  [[HTML](http://patrickgray.me/open-geo-tutorial/chapter_8_xarray_netcdfs.html)]
 
-I strongly recommend using Binder and interactively playing with these notebooks. As an alternative, or if you want to work more extensively with these labs, you can easily git clone the whole repo and use the included Dockerfile to set up your environment.
+I strongly recommend using Binder and interactively playing with these notebooks. As an alternative, or if you want to work more extensively with these labs or use them as a template for your own work, you can easily git clone the whole repo and use the included Dockerfile to set up your environment.
 
 ### Some of the things you'll learn:
 
@@ -50,7 +50,7 @@ I strongly recommend using Binder and interactively playing with these notebooks
 <img src="data/ml_exp.png" width="750">
 
 #### Dealing with large datasets and interactive analysis
-<img src="data/chla_xarray.png" width="450">
+<img src="data/chla_xarray.png" width="650">
 
 # Setup
 As mentioned above, this repo can be run entirely in the cloud with no manual setup via Binder by clicking this badge and this is what we strongly recommend for beginner users: 
@@ -60,21 +60,15 @@ As mentioned above, this repo can be run entirely in the cloud with no manual se
 ## Download
 
 Materials and data for these lessons are included inside this repository under
-the `data/` directory. If you're note running in Binder I would recommend downloading all of the lesson material
+the `data/` directory. If you're not running in Binder I would recommend downloading all of the lesson material
 at once, instead of downloading individual files.
-
-Two ways to download the entire repository include:
 
 * Use `git` to `clone` the repository (recommended)
     * [Instructions](https://help.github.com/articles/cloning-a-repository/)
-* Downloading and extracting a ZIP file of the 'master' branch
-    * [Download link](https://github.com/patrickcgray/open-geo-tutorial/archive/master.zip)
 
 ## Python Installation
 
-To run the Jupyter Notebooks (formerly known as IPython Notebooks) and follow
-the tutorial locally, you will need to install Python and the libraries used in
-the tutorials. This installation can be accomplished in many ways, but I recommend Docker:
+To run the Jupyter Notebooks (formerly known as IPython Notebooks) and follow the tutorial locally, you will need to install Python and the libraries used in the tutorials. This installation can be accomplished in many ways, but I recommend Docker:
 
 ### Docker
 
@@ -83,3 +77,5 @@ I highly recommend trying out [Docker](https://docs.docker.com/get-started/) if 
 `docker run -it --rm -p 8888:8888 -v <path to repo>:/home/jovyan/repo/ pangeo/pangeo-notebook:2021.05.15 jupyter lab --ip 0.0.0.0`
 
 This will download the Docker image that is needed to run this whole repo and then it will start up a Jupyter Lab instance that you can access by clicking the link in the terminal. Just change `<path to repo>` to the appropriate path and you'll be good to go!
+
+This series is modified from an [excellent tutorial series](https://github.com/ceholden/open-geo-tutorial) put together by [@ceholden](https://github.com/ceholden/) teaching open source geospatial tools with `GDAL`/`OGR`/`OSR` directly which I have modified to use more pythonic libraries and expanded with more material. A big thanks for Chris for building the foundation for this series!
