@@ -18,8 +18,6 @@ This repo can be run entirely in the cloud with no manual setup via Binder by cl
 
 *** once in a blue moon launching via Binder fails either for lack of resources or due to a network error, but typically if you re-click the link it will launch correctly.
 
-Small corrections and additions of missing parts to Chapter 6 Notebook, by <a href="https://github.com/ClaudeCoulombe/open-geo-tutorial" target='_blank'>Claude COULOMBE - Ph.D. - Montréal</a>
-
 # Repo Structure 
 
 All chapters are available as jupyter notebooks in the `notebooks/` directory or viewable via a normal web browser in HTML:
@@ -37,8 +35,6 @@ All chapters are available as jupyter notebooks in the `notebooks/` directory or
 5. Land cover classification
    [[HTML](http://patrickgray.me/open-geo-tutorial/chapter_5_classification.html)]
 6. Deep Learning for land cover classification [[HTML](http://patrickgray.me/open-geo-tutorial/chapter_6_neural_networks.html)] built to run in [Google Colab](https://colab.research.google.com/github/patrickcgray/open-geo-tutorial/blob/master/notebooks/chapter_6_neural_networks.ipynb).
-
-   Small corrections and additions of missing parts to Chapter 6 Notebook, by <a href="https://github.com/ClaudeCoulombe/open-geo-tutorial" target='_blank'>Claude COULOMBE - Ph.D. - Montréal</a>
 
 7. Earth Engine for Oceanographic Time Series Analysis [[HTML](http://patrickgray.me/open-geo-tutorial/chapter_7_earth_engine_oceanography.html)]
 8. Xarray for handling N-dimensional arrays and advanced visualization with hvplot  [[HTML](http://patrickgray.me/open-geo-tutorial/chapter_8_xarray_netcdfs.html)]
